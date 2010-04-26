@@ -1,0 +1,17 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Titre:</b>
+  <%= @note.titre %>
+</p>
+
+<p>
+  <b>Texte:</b>
+<div style="padding: 10px; border: 1px solid #888;">
+  <%=raw RedCloth.new( @note.texte).to_html %>
+</div>
+</p>
+
+
+<%= link_to 'Edit', edit_campaign_note_path(@campaign,@note) %> |
+<%= link_to 'Back', campaign_notes_path(@campaign) %>

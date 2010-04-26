@@ -1,0 +1,17 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Location:</b>
+  <%= @loot.location %>
+</p>
+
+<p>
+  <b>Loot:</b>
+<div style="padding: 10px; border: 1px solid #888"/>
+  <%=raw RedCloth.new( @loot.loot).to_html -%>
+</div>
+</p>
+
+
+<%= link_to 'Edit', edit_campaign_loot_path(@campaign,@loot) %> |
+<%= link_to 'Back', campaign_loots_path(@campaign) %>

@@ -1,0 +1,24 @@
+<%= form_for([@campaign, @note]) do |f| %>
+  <% if @note.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+    <ul>
+    <% @note.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titre %><br />
+    <%= f.text_field :titre %>
+  </div>
+  <div class="field">
+    <%= f.label :texte %><br />
+    <%= f.text_area :texte %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

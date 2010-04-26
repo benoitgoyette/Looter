@@ -1,0 +1,24 @@
+<%= form_for([@campaign,@loot]) do |f| %>
+  <% if @loot.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@loot.errors.count, "error") %> prohibited this loot from being saved:</h2>
+    <ul>
+    <% @loot.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :loot %><br />
+    <%= f.text_area :loot %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
