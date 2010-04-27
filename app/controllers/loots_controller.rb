@@ -1,8 +1,8 @@
 class LootsController < ApplicationController
   # GET /loots
   # GET /loots.xml
+  before_filter :assure_loggon
   before_filter :get_campaign
-  layout 'contents'
   
   def index
     @loots = @campaign.loots

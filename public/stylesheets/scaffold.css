@@ -4,6 +4,7 @@ body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
+  background-color: #AADDFF;
 }
 
 pre {
@@ -58,3 +59,34 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+.menu {display: block;
+  height: 20px;
+  overflow: hidden;
+  width: 1024px;
+  margin-bottom: ;}
+
+.menu ul {color: red;
+  cursor: auto;
+  display: block;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 1024px;}
+
+.menu ul li {float: left; 
+  margin-right: 20px}
+
+.main-content {
+  background-color: #FFF;
+  width: 1024px;
+  border: 1px solid #DDD; 
+  padding: 20px; 
+  position: relative; 
+  margin: 0px auto; 
+  -moz-border-radius: 10px; 
+  -webkit-border-radius: 10px;}
+table tr td { background-color: #FFF;}
+p { background-color: #FFF;}

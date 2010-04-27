@@ -1,7 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :assure_loggon
   before_filter :get_campaign
-  layout 'contents'
-  
 
   # GET /notes
   # GET /notes.xml

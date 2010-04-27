@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Looter</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div class="main-content">
+  	<div id="user_nav">
+  	  <% if user_signed_in? %>
+  	    Signed in as <%= current_user.email %>. 
+  	    <%= link_to "Sign out", destroy_user_session_path %>
+  	  <% else %>
+  	    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  	  <% end %>
+  	</div>
+  	<div class="menu">	
+  		<ul><li><%=link_to 'Campaigns', campaigns_path %></li>
+  		<% if !@campaign.blank? && !@campaign.id.blank? %>
+  		<li><%=link_to 'Notes', campaign_notes_path(@campaign) %></li>
+  		<li><%=link_to 'Loot', campaign_loots_path(@campaign) %></li>
+  		<%end%>
+  		</ul>
+  	</div>
+    <%= yield %>
+  </div>
+</body>
+</html>

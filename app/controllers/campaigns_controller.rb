@@ -1,7 +1,7 @@
 class CampaignsController < ApplicationController
   # GET /campaigns
   # GET /campaigns.xml
-  layout 'campaign'
+  before_filter :assure_loggon
   
   def index
     @campaigns = Campaign.all

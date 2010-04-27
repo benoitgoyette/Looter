@@ -1,4 +1,4 @@
-<h1>Listing notes</h1>
+<h1>Notes</h1>
 
 <table>
   <tr>
@@ -11,7 +11,7 @@
 
 <% @notes.each do |note| %>
   <tr>
-    <td><%= note.titre %></td>
+    <td><%= link_to note.titre, [@campaign, note] %></td>
     <td><%= note.created_at.strftime "%Y-%m-%d" %></td>
     <td><%= link_to 'Show', [@campaign, note] %></td>
     <td><%= link_to 'Edit', edit_campaign_note_path(@campaign, note) %></td>
