@@ -17,5 +17,6 @@ Looter::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.cookie_secret = 'ea6db5e9c6cd6964d9909cfb6c9101d958ae294b42c23c016739efd27da25e83789642b6a3111c0a2cddc7c1c8ba18d2811b195abceb6ea1e39edbda896a434c'
   
 end
