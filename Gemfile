@@ -7,16 +7,16 @@ gem 'rails', '3.0.0.beta3'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'RedCloth'
-gem 'acts_as_ferret'
+#gem 'acts_as_ferret'
 gem 'devise', '1.1.rc1'
 
 # Use unicorn as the web server
 #gem 'unicorn'
 
-gem 'mongrel'
-gem 'cgi_multipart_eof_fix'
-gem 'fastthread'
-gem 'mongrel_experimental'
+#gem 'mongrel'
+#gem 'cgi_multipart_eof_fix'
+#gem 'fastthread'
+#gem 'mongrel_experimental'
 
 
 
