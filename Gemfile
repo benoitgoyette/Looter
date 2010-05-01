@@ -7,10 +7,16 @@ gem 'rails', '3.0.0.beta2'
 
 gem 'RedCloth'
 gem 'devise', '1.1.rc1'
-gem 'mysql'
-
+group :production do
+  gem 'mysql'
+end
+group :development do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
+group :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
 #gem 'acts_as_ferret'
-#gem 'sqlite3-ruby', :require => 'sqlite3'
 
 
 #gem 'mongrel'

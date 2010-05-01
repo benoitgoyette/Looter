@@ -13,8 +13,9 @@
 <% @campaigns.each do |campaign| %>
   <tr>
     <td style="padding-right: 20px;"><%= campaign.title %></td>
-	<td><%= link_to 'Notes', campaign_notes_path(campaign)%></td>
-	<td style="padding-right: 20px;"><%= link_to 'Loot', campaign_loots_path(:campaign_id=>campaign)%>&nbsp;&nbsp;&nbsp;</td>
+	  <td><%= link_to 'Notes', campaign_notes_path(campaign)%></td>
+	  <td><%= link_to 'Loot', campaign_loots_path(:campaign_id=>campaign)%>&nbsp;&nbsp;&nbsp;</td>
+	  <td style="padding-right: 20px;"><%= link_to 'Characters', campaign_characters_path(:campaign_id=>campaign)%>&nbsp;&nbsp;&nbsp;</td>
     <td><%= link_to 'Show', campaign %></td>
     <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
     <td><%= link_to 'Destroy', campaign, :confirm => 'Are you sure?', :method => :delete %></td>

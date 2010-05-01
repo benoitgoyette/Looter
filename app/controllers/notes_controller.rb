@@ -83,10 +83,5 @@ class NotesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-protected
-  def get_campaign
-    @campaign = Campaign.find(params[:campaign_id])
-  end
   
 end

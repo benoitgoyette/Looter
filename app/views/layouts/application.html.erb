@@ -19,6 +19,7 @@
   	<div class="menu">	
   		<ul><li><%=link_to 'Campaigns', campaigns_path %></li>
   		<% if !@campaign.blank? && !@campaign.id.blank? %>
+  		<li><%=link_to 'Characters', campaign_characters_path(@campaign) %></li>
   		<li><%=link_to 'Notes', campaign_notes_path(@campaign) %></li>
   		<li><%=link_to 'Loot', campaign_loots_path(@campaign) %></li>
   		<%end%>
