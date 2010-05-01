@@ -1,0 +1,24 @@
+<h1>Characters</h1>
+<h2><%= @campaign.title%></h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @characters.each do |character| %>
+  <tr>
+    <td><%= character.name %></td>
+    <td><%= link_to 'Show', [@campaign, character] %></td>
+    <td><%= link_to 'Edit', edit_campaign_character_path(@campaign, character) %></td>
+    <td><%= link_to 'Destroy', [@campaign, character], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Character', new_campaign_character_path(@campaign) %>

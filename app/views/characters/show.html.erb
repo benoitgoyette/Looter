@@ -1,0 +1,18 @@
+<p>
+  <b>Campaign:</b>
+  <%= @character.campaign.title %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @character.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @character.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_campaign_character_path(@campaign, @character) %> |
+<%= link_to 'Back', campaign_characters_path(@campaign) %>
