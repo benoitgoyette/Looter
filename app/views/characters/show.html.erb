@@ -10,7 +10,7 @@
 
 <p>
   <b>Description:</b>
-  <%= @character.description %>
+  <%=raw RedCloth.new(sanitize @character.description).to_html %>
 </p>
 
 
