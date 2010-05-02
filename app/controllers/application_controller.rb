@@ -9,5 +9,5 @@ class ApplicationController < ActionController::Base
   def get_campaign
     @campaign = Campaign.find(params[:campaign_id])
   end
-  
+
 end

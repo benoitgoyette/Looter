@@ -7,6 +7,7 @@ gem 'rails', '3.0.0.beta2'
 
 gem 'RedCloth'
 gem 'devise', '1.1.rc1'
+gem 'acts-as-taggable-on'
 group :production do
   gem 'mysql'
 end

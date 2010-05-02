@@ -3,9 +3,16 @@ class LootsController < ApplicationController
   # GET /loots.xml
   before_filter :assure_loggon
   before_filter :get_campaign
+  before_filter :get_tag_cloud, :only=>[:index]
+  
   
   def index
-    @loots = @campaign.loots
+    tag_name = params.delete :tag
+    unless tag_name.blank?
+      @loots = @campaign.loots & Loot.tagged_with(tag_name)
+    else
+      @loots = @campaign.loots
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,7 +92,10 @@ class LootsController < ApplicationController
   end
   
   protected
-  def get_campaign
-    @campaign = Campaign.find(params[:campaign_id])
+  def get_tag_cloud
+    @tags = Loot.tag_counts_on(:tags)
   end
+
+  
+  
 end

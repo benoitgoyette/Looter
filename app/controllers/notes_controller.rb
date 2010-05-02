@@ -1,12 +1,18 @@
 class NotesController < ApplicationController
   before_filter :assure_loggon
   before_filter :get_campaign
+  before_filter :get_tag_cloud, :only=>[:index]
 
   # GET /notes
   # GET /notes.xml
   def index
-    @notes = @campaign.notes
-
+    tag_name = params.delete :tag
+    unless tag_name.blank?
+      @notes = @campaign.notes & Note.tagged_with(tag_name)
+    else
+      @notes = @campaign.notes
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @notes }
@@ -43,7 +49,9 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.xml
   def create
-    @note = Note.new(params[:note])
+#    tags = params[:note].delete(:tag_list)
+    @note = Note.new(params[:note])        
+#    @campaign.notes.tag_list = tags
 
     respond_to do |format|
       if @campaign.notes << @note
@@ -83,5 +91,11 @@ class NotesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  def get_tag_cloud
+    @tags = Note.tag_counts_on(:tags)
+  end
+
   
 end

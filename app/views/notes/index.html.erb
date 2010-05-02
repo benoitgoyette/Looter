@@ -1,25 +1,37 @@
+<div>
 <h1>Notes</h1>
+<div class="center_column">
+  <table>
+    <tr>
+      <th>Titre</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<table>
-  <tr>
-    <th>Titre</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% @notes.each do |note| %>
+    <tr>
+      <td><%= link_to note.titre, [@campaign, note] %></td>
+      <td><%= note.created_at.strftime "%Y-%m-%d" %></td>
+      <td><%= link_to 'Show', [@campaign, note] %></td>
+      <td><%= link_to 'Edit', edit_campaign_note_path(@campaign, note) %></td>
+      <td><%= link_to 'Destroy', [@campaign, note], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<% @notes.each do |note| %>
-  <tr>
-    <td><%= link_to note.titre, [@campaign, note] %></td>
-    <td><%= note.created_at.strftime "%Y-%m-%d" %></td>
-    <td><%= link_to 'Show', [@campaign, note] %></td>
-    <td><%= link_to 'Edit', edit_campaign_note_path(@campaign, note) %></td>
-    <td><%= link_to 'Destroy', [@campaign, note], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <br />
 
-<br />
-
-<%= link_to 'New Note', new_campaign_note_path(@campaign) %>
+  <%= link_to 'New Note', new_campaign_note_path(@campaign) %>
+</div>
+<div class="side_column">
+  <p>Tags:</p>
+  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <%= link_to tag.name, campaign_notes_path(@campaign, :tag=>tag.name), :class => css_class %>
+  <% end %>
+  <p>
+    <%= link_to 'all', campaign_notes_path(@campaign) %>
+  </p>
+</div>
+</div>

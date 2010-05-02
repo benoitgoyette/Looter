@@ -12,6 +12,11 @@
 </div>
 </p>
 
+<p>
+  <b>Tags:</b>
+  <%= @loot.tag_list.join ',' %>
+</p>
+
 
 <%= link_to 'Edit', edit_campaign_loot_path(@campaign,@loot) %> |
 <%= link_to 'Back', campaign_loots_path(@campaign) %>

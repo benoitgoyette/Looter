@@ -88,5 +88,21 @@ div.field, div.actions {
   margin: 0px auto; 
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px;}
+  
 table tr td { background-color: #FFF;}
+
 p { background-color: #FFF;}
+.content {
+  overflow: auto;
+}
+.side_column { 
+  width: 200px; 
+  float: left }
+.center_column { 
+  width: 800px; 
+  float: left}
+
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }

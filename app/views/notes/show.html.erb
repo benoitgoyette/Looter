@@ -12,6 +12,12 @@
 </div>
 </p>
 
+<p>
+  <b>Tags:</b>
+  <%= @note.tag_list.join ',' %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_campaign_note_path(@campaign,@note) %> |
 <%= link_to 'Back', campaign_notes_path(@campaign) %>
