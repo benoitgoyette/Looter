@@ -25,13 +25,13 @@
 
   <%= link_to 'New Note', new_campaign_note_path(@campaign) %>
 </div>
-<div class="side_column">
+<!-- <div class="side_column">
   <p>Tags:</p>
-  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-    <%= link_to tag.name, campaign_notes_path(@campaign, :tag=>tag.name), :class => css_class %>
-  <% end %>
+  <%# tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <%#= link_to tag.name, campaign_notes_path(@campaign, :tag=>tag.name), :class => css_class %>
+  <%# end %>
   <p>
-    <%= link_to 'all', campaign_notes_path(@campaign) %>
+    <%#= link_to 'all', campaign_notes_path(@campaign) %>
   </p>
-</div>
+</div> -->
 </div>
