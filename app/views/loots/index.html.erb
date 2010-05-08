@@ -1,8 +1,8 @@
 <div>
-<h1>Loots</h1>
+<h1>Loot</h1>
 <div class="center_column">
 <table>
-  <tr>
+  <tr style="color: #FFF">
     <th>Location</th>
     <th>date</th>
     <th></th>
@@ -11,9 +11,9 @@
   </tr>
 
 <% @loots.each do |loot| %>
-  <tr>
-    <td><%= loot.location %></td>
-    <td><%= loot.created_at.strftime("%Y-%m-%d") %></td>
+  <tr> 
+    <td class="col1"><%= loot.location %></td>
+    <td class="col-date"><%= loot.created_at.strftime("%Y-%m-%d") %></td>
     <td><%= link_to 'Show', [@campaign,loot] %></td>
     <td><%= link_to 'Edit', edit_campaign_loot_path(@campaign,loot) %></td>
     <td><%= link_to 'Destroy', [@campaign,loot], :confirm => 'Are you sure?', :method => :delete %></td>

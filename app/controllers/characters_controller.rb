@@ -63,7 +63,12 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.update_attributes(params[:character])
-        format.html { redirect_to([@campaign, @character], :notice => 'Character was successfully updated.') }
+        if params[:continue]
+          flash[:notice] = "Saved!"
+          format.html { render :action => "edit" }
+        else  
+          format.html { redirect_to([@campaign, @character], :notice => 'Character was successfully updated.') }
+        end
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

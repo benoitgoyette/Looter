@@ -71,7 +71,12 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to([@campaign,@note], :notice => 'Note was successfully updated.') }
+        if params[:continue]
+          flash[:notice] = "Saved!"
+          format.html { render :action => "edit" }
+        else  
+          format.html { redirect_to([@campaign,@note], :notice => 'Note was successfully updated.') }
+        end
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

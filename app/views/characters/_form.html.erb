@@ -13,6 +13,6 @@
     <%= f.text_area :description %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %><%= f.submit("Save and continue", :name=>"continue") unless @character.id.blank?%>
   </div>
 <% end %>

@@ -70,7 +70,12 @@ class LootsController < ApplicationController
 
     respond_to do |format|
       if @loot.update_attributes(params[:loot])
-        format.html { redirect_to([@campaign,@loot], :notice => 'Loot was successfully updated.') }
+        if params[:continue]
+          flash[:notice] = "Saved!"
+          format.html { render :action => "edit" }
+        else  
+          format.html { redirect_to([@campaign,@loot], :notice => 'Loot was successfully updated.') }
+        end
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -1,6 +1,11 @@
 <h1>Editing character</h1>
+<div id='edit_notice'>
+<%= flash[:notice]%>
+</div>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', [@campaign, @character] %> |
 <%= link_to 'Back', campaign_characters_path(@campaign) %>
+
+<%=javascript_tag "Element.fade('edit_notice', {duration:2});" %>

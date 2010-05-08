@@ -88,8 +88,11 @@ div.field, div.actions {
   margin: 0px auto; 
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px;}
-  
+
+table {width:800px;}  
 table tr td { background-color: #FFF;}
+table tr td.col1 { width:500px;}
+table tr td.col-date { width:100px;}
 
 p { background-color: #FFF;}
 .content {

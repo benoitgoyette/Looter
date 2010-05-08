@@ -23,6 +23,6 @@
   <%= f.text_field :tag_list %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %><%= f.submit("Save and continue", :name=>"continue") unless @note.id.blank?%>
   </div>
 <% end %>
