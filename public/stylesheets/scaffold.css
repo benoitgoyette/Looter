@@ -109,6 +109,7 @@ p { background-color: #FFF;}
 .center_column { 
   width: 800px; 
   float: left}
+.padding_bottom_20 {padding-bottom: 20px;}
 
 .css1 { font-size: 1.0em; }
 .css2 { font-size: 1.2em; }

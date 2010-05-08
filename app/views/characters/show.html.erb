@@ -1,58 +1,59 @@
 <% categories = @character.stats_by_categories%>
 
-<div style="overflow: auto">
-  <div  class="short" style="padding: 20px; float:left; overflow:auto">
+<div>
     <p>
       <b>Name:</b>
       <%= @character.name %>
     </p>
 
-    <p>
-      <b>Class:</b>
-      <%= @character.character_class %>
-    </p>
-
-    <p>
-      <b>Description:</b>
-      <%=raw RedCloth.new(sanitize @character.description).to_html %>
-    </p>
-  </div>
-  <div class="short" style="padding: 20px; float:left">
-    <div class="menu short">	
+    <div class="menu short padding_bottom_20">	
   		<ul>
         <% categories.keys.each do |category|%>
           <li><%=link_to category, "#", :onclick=>"toggle_stats('#{category}');return false;" %></li>
         <%end%>
+        <li><%=link_to 'description', "#", :onclick=>"toggle_stats('description');return false;" %></li>
+        
       </ul>
     </div>
     <% categories.each_pair  do |category, stats|%>
-    <% content_tag(:div, :id=>"category_#{category}", :class=>"stats_category") do%>
-      <p><b><%=category%></b></p>
-      <table class="stats">
-        <tr>
-          <th>Name</th>
-          <th>Value</th>
-          <th>bonus</th>
-          <th>temp bonus</th>
-          <th>Original</th>
-          <th></th>
-        </tr>
-
-        <% stats.each do |stat| %>
+      <% content_tag(:div, :id=>"category_#{category}", :class=>"stats_category") do%>
+        <p><b><%=category%></b></p>
+        <table class="stats">
           <tr>
-            <td><%= stat.name %></td>
-            <td><%= stat.value %></td>
-            <td><%= stat.permanent_bonus %></td>
-            <td><%= stat.temporary_bonus %></td>
-            <td><%= stat.original_value %></td>
-            <td><%= link_to "*", "#", :title=>stat.description unless stat.description.blank? %></td>
+            <th>Name</th>
+            <th>Value</th>
+            <th>bonus</th>
+            <th>temp bonus</th>
+            <th>Original</th>
+            <th></th>
           </tr>
-        <% end %>
-      </table>
-    <% end %>
-    
+
+          <% stats.each do |stat| %>
+            <tr>
+              <td><%= stat.name %></td>
+              <td><%= stat.value %></td>
+              <td><%= stat.permanent_bonus %></td>
+              <td><%= stat.temporary_bonus %></td>
+              <td><%= stat.original_value %></td>
+              <td><%= link_to "*", "#", :title=>stat.description unless stat.description.blank? %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
     <%end%>
-  </div>
+      
+    <div id="category_description" class="stats_category" style="display:block">
+      
+      <p>
+        <b>Class:</b>
+        <%= @character.character_class %>
+      </p>
+      <p>
+        <b>Description:</b>
+        <%=raw RedCloth.new(sanitize @character.description).to_html %>
+      </p>
+    </div>
+      
 </div>
 
 
