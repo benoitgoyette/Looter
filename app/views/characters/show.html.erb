@@ -8,10 +8,10 @@
 
     <div class="menu short padding_bottom_20">	
   		<ul>
+        <li><%=link_to 'description', "#", :onclick=>"toggle_stats('description');return false;" %></li>
         <% categories.keys.each do |category|%>
           <li><%=link_to category, "#", :onclick=>"toggle_stats('#{category}');return false;" %></li>
         <%end%>
-        <li><%=link_to 'description', "#", :onclick=>"toggle_stats('description');return false;" %></li>
         
       </ul>
     </div>

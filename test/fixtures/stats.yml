@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  stat_list: MyString
+  name: MyString
   character_id: 1
 
 two:
-  stat_list: MyString
+  name: MyString
   character_id: 1
