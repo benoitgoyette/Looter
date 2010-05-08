@@ -97,6 +97,8 @@ table tr td.col-date { width:100px;}
 table.stats {width: 500px; text-align:center}
 .stats_category {display:none;}
 
+.short {width: 450px;}
+
 p { background-color: #FFF;}
 .content {
   overflow: auto;

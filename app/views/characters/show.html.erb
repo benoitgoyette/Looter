@@ -1,7 +1,7 @@
 <% categories = @character.stats_by_categories%>
 
 <div style="overflow: auto">
-  <div style="width: 450px; padding: 20px; float:left">
+  <div  class="short" style="padding: 20px; float:left">
     <p>
       <b>Name:</b>
       <%= @character.name %>
@@ -17,11 +17,14 @@
       <%=raw RedCloth.new(sanitize @character.description).to_html %>
     </p>
   </div>
-  <div style="width: 450px; padding: 20px; float:left">
-    
-    <% categories.keys.each do |category|%>
-      <%=link_to category, "#", :onclick=>"toggle_stats('#{category}');return false;" %>
-    <%end%>
+  <div class="short" style="padding: 20px; float:left">
+    <div class="menu short">	
+  		<ul>
+        <% categories.keys.each do |category|%>
+          <li><%=link_to category, "#", :onclick=>"toggle_stats('#{category}');return false;" %></li>
+        <%end%>
+      </ul>
+    </div>
     <% categories.each_pair  do |category, stats|%>
     <% content_tag(:div, :id=>"category_#{category}", :class=>"stats_category") do%>
       <p><b><%=category%></b></p>
