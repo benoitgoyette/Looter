@@ -12,7 +12,7 @@
 
 <% @loots.each do |loot| %>
   <tr> 
-    <td class="col1"><%= loot.location %></td>
+    <td class="col1"><%=link_to loot.location, [@campaign, loot] %></td>
     <td class="col-date"><%= loot.created_at.strftime("%Y-%m-%d") %></td>
     <td><%= link_to 'Show', [@campaign,loot] %></td>
     <td><%= link_to 'Edit', edit_campaign_loot_path(@campaign,loot) %></td>

@@ -94,6 +94,9 @@ table tr td { background-color: #FFF;}
 table tr td.col1 { width:500px;}
 table tr td.col-date { width:100px;}
 
+table.stats {width: 500px; text-align:center}
+.stats_category {display:none;}
+
 p { background-color: #FFF;}
 .content {
   overflow: auto;

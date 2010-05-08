@@ -1,0 +1,48 @@
+<h1>stats</h1>
+
+<%form_for :stat, [@campaign, @character] do |form|%>
+  <p>
+    Quick stat, Create several stats at once, specify the name, value and category separated by columns, separate each stat by periods.<br/> ex: name:value:category, name2:value2:category2<br/>
+    <%= text_area_tag :quick_stat %>
+  </p>
+  <%=form.submit "Create quick stats"%>
+<%end%>
+
+<br />
+
+<%= link_to 'Create New Stat', new_campaign_character_stat_path(@campaign, @character) %>
+
+
+<table>
+  <tr>
+    <th>Stat</th>
+    <th>Value</th>
+    <th>bonus</th>
+    <th>temp bonus</th>
+    <th>Original</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stats.each do |stat| %>
+  <tr>
+    <td><%= stat.name %></td>
+    <td><%= stat.value %></td>
+    <td><%= stat.permanent_bonus %></td>
+    <td><%= stat.temporary_bonus %></td>
+    <td><%= stat.original_value %></td>
+    <td><%= stat.category %></td>
+    <td><%= link_to "*", "#", :title=>stat.description unless stat.description.blank? %></td>
+    <td><%= link_to 'Show', [@campaign, @character, stat] %></td>
+    <td><%= link_to 'Edit', edit_campaign_character_stat_path(@campaign, @character, stat) %></td>
+    <td><%= link_to 'Destroy', [@campaign, @character, stat], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stat', new_campaign_character_stat_path(@campaign, @character) %>

@@ -1,18 +1,58 @@
-<p>
-  <b>Campaign:</b>
-  <%= @character.campaign.title %>
-</p>
+<% categories = @character.stats_by_categories%>
 
-<p>
-  <b>Name:</b>
-  <%= @character.name %>
-</p>
+<div style="overflow: auto">
+  <div style="width: 450px; padding: 20px; float:left">
+    <p>
+      <b>Name:</b>
+      <%= @character.name %>
+    </p>
 
-<p>
-  <b>Description:</b>
-  <%=raw RedCloth.new(sanitize @character.description).to_html %>
-</p>
+    <p>
+      <b>Class:</b>
+      <%= @character.character_class %>
+    </p>
+
+    <p>
+      <b>Description:</b>
+      <%=raw RedCloth.new(sanitize @character.description).to_html %>
+    </p>
+  </div>
+  <div style="width: 450px; padding: 20px; float:left">
+    
+    <% categories.keys.each do |category|%>
+      <%=link_to category, "#", :onclick=>"toggle_stats('#{category}');return false;" %>
+    <%end%>
+    <% categories.each_pair  do |category, stats|%>
+    <% content_tag(:div, :id=>"category_#{category}", :class=>"stats_category") do%>
+      <p><b><%=category%></b></p>
+      <table class="stats">
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>bonus</th>
+          <th>temp bonus</th>
+          <th>Original</th>
+          <th></th>
+        </tr>
+
+        <% stats.each do |stat| %>
+          <tr>
+            <td><%= stat.name %></td>
+            <td><%= stat.value %></td>
+            <td><%= stat.permanent_bonus %></td>
+            <td><%= stat.temporary_bonus %></td>
+            <td><%= stat.original_value %></td>
+            <td><%= link_to "*", "#", :title=>stat.description unless stat.description.blank? %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+    
+    <%end%>
+  </div>
+</div>
 
 
 <%= link_to 'Edit', edit_campaign_character_path(@campaign, @character) %> |
-<%= link_to 'Back', campaign_characters_path(@campaign) %>
+<%= link_to 'Back', campaign_characters_path(@campaign) %> | 
+<%= link_to 'stats', campaign_character_stats_path(@campaign, @character) %>

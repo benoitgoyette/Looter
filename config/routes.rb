@@ -1,5 +1,4 @@
 Looter::Application.routes.draw do |map|
-
   devise_for :users
 
   root :to => "campaigns#index"
@@ -7,7 +6,9 @@ Looter::Application.routes.draw do |map|
   resources :campaigns do
     resources :loots
   	resources :notes
-    resources :characters
+    resources :characters do
+      resources :stats
+    end
   end
 
   # The priority is based upon order of creation:

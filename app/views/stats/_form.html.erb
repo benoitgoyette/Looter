@@ -1,0 +1,35 @@
+<%= form_for([@campaign, @character, @stat]) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :permanent_bonus %><br />
+    <%= f.text_field :permanent_bonus %>
+  </div>
+  <div class="field">
+    <%= f.label :temporary_bonus %><br />
+    <%= f.text_field :temporary_bonus %>
+  </div>
+  <div class="field">
+    <%= f.label :original_value %><br />
+    <%= f.text_field :original_value %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

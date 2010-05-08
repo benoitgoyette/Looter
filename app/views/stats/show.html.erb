@@ -1,0 +1,32 @@
+
+<p>
+  <b>name</b>
+  <%= @stat.name %>
+</p>
+<p>
+  <b>value</b>
+  <%= @stat.value %>
+</p>
+<p>
+  <b>permanent_bonus</b>
+  <%= @stat.permanent_bonus %>
+</p>
+<p>
+  <b>temporary_bonus</b>
+  <%= @stat.temporary_bonus %>
+</p>
+<p>
+  <b>original_value</b>
+  <%= @stat.original_value %>
+</p>
+<p>
+  <b>description</b>
+  <%= @stat.description %>
+</p>
+<p>
+  <b>category</b>
+  <%= @stat.category %>
+</p>
+<%= link_to 'Edit', edit_campaign_character_stat_path(@campaign, @character,@stat) %> |
+<%= link_to 'Back', campaign_character_stats_path(@campaign, @character) %>
+

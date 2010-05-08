@@ -9,4 +9,4 @@
 <%= link_to 'Show', [@campaign,@note] %> |
 <%= link_to 'Back', campaign_notes_path(@campaign) %>
 
-<%=javascript_tag "Element.fade('edit_notice', {duration:2});" %>
+<%=javascript_tag "$('#edit_notice').fadeOut(2000);" %>

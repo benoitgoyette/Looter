@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100502184102) do
+ActiveRecord::Schema.define(:version => 20100508152214) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20100502184102) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "character_class"
   end
 
   create_table "loots", :force => true do |t|
@@ -38,6 +39,19 @@ ActiveRecord::Schema.define(:version => 20100502184102) do
     t.string   "titre"
     t.text     "texte"
     t.integer  "campaign_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stats", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.string   "original_value"
+    t.string   "permanent_bonus"
+    t.string   "temporary_bonus"
+    t.string   "description"
+    t.string   "category",        :default => "none"
+    t.integer  "character_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

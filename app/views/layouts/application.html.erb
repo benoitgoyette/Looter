@@ -3,7 +3,7 @@
 <head>
   <title>Looter - <%=params[:controller]%></title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag %w{jquery-1.4.2.js rails.jq.js application.js} %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -22,10 +22,14 @@
   		<li><%=link_to 'Characters', campaign_characters_path(@campaign) %></li>
   		<li><%=link_to 'Notes', campaign_notes_path(@campaign) %></li>
   		<li><%=link_to 'Loot', campaign_loots_path(@campaign) %></li>
+  		<% my_character = Character.user_campaign(current_user, @campaign) %>
+  		<li><%=link_to my_character.name, [@campaign, my_character] if my_character %></li>
   		<%end%>
   		</ul>
   	</div>
     <div class="content">
+      <h1><%= link_to @campaign.title, @campaign if @campaign%></h1>
+      <h2><%= link_to @character.name, [@campaign, @character] if @character%></h2>
     <%= yield %>
     </div>
   </div>

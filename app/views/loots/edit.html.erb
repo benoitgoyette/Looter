@@ -9,4 +9,4 @@
 <%= link_to 'Show', [@campaign,@loot] %> |
 <%= link_to 'Back', campaign_loots_path(@campaign) %>
 
-<%=javascript_tag "Element.fade('edit_notice', {duration:2});" %>
+<%=javascript_tag "$('#edit_notice').fadeOut(2000);" %>
