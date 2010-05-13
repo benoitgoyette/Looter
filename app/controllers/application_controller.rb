@@ -17,5 +17,18 @@ class ApplicationController < ActionController::Base
   def render_error(status)
     return render :file=>"#{Rail.root}/public/403.html"
   end
+  
+  def get_tags_count_on(model)
+    query = <<-SQL
+      SELECT tags.*, COUNT(*) AS count 
+      FROM tags
+      LEFT OUTER JOIN taggings ON tags.id = taggings.tag_id AND taggings.context = 'tags' 
+      INNER JOIN notes ON notes.id = taggings.taggable_id 
+      WHERE  (taggings.taggable_type = '#{model.to_s}') AND (taggings.taggable_id IN(SELECT notes.id FROM #{model.table_name})) 
+      GROUP BY  tags.id, tags.name 
+      HAVING COUNT(*) > 0
+    SQL
+    ActsAsTaggableOn::Tag.find_by_sql(query)
+  end
 
 end

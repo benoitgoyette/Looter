@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100508152214) do
+ActiveRecord::Schema.define(:version => 20100511234608) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20100508152214) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "character_class"
+    t.string   "original_hit_points"
+    t.string   "current_hit_points"
   end
 
   create_table "loots", :force => true do |t|

@@ -98,7 +98,9 @@ class LootsController < ApplicationController
   
   protected
   def get_tag_cloud
-    @tags = Loot.tag_counts_on(:tags)
+    #@tags = Loot.tag_counts_on(:tags)
+    @tags = get_tags_count_on(Loot)
+    
   end
 
   

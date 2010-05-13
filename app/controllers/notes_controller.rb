@@ -99,7 +99,19 @@ class NotesController < ApplicationController
 
 
   def get_tag_cloud
-    @tags = Note.tag_counts_on(:tags)
+    #@tags = Note.tag_counts_on(:tags)
+    @tags = get_tags_count_on(Note)
+    # query = <<-SQL
+    # SELECT tags.*, COUNT(*) AS count 
+    # FROM tags
+    # LEFT OUTER JOIN taggings ON tags.id = taggings.tag_id AND taggings.context = 'tags' 
+    # INNER JOIN notes ON notes.id = taggings.taggable_id 
+    # WHERE  (taggings.taggable_type = 'Note') AND (taggings.taggable_id IN(SELECT notes.id FROM notes)) 
+    # GROUP BY  tags.id, tags.name 
+    # HAVING COUNT(*) > 0
+    # SQL
+    # @tags = ActsAsTaggableOn::Tag.find_by_sql(query)
+    
   end
 
   

@@ -88,4 +88,7 @@ class CharactersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def update_hit_points
+  end
 end

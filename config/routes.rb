@@ -7,6 +7,9 @@ Looter::Application.routes.draw do |map|
     resources :loots
   	resources :notes
     resources :characters do
+      member do
+        get :update_hit_points
+      end
       resources :stats
     end
   end

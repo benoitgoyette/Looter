@@ -1,11 +1,27 @@
 <% categories = @character.stats_by_categories%>
 
 <div>
+  <p>
+    <b>Name:</b>
+    <%= @character.name %>
+  </p>
+  <hr/>
+  <div>
     <p>
-      <b>Name:</b>
-      <%= @character.name %>
+      <b>Original hit points:</b><%= @character.original_hit_points %>
+        <%= form_for([@campaign, @character], :html=>{:id=>:current_hit_points_form}, :remote=>true) do |f| %>        
+        <div class="field">
+          <b><%= f.label :current_hit_points %></b>
+          <%= f.text_field :current_hit_points, :id=>:current_hit_points %>
+        </div>
+        
+      <%end%>
+      <script language="JavaScript">
+      var old_var = $("#current_hit_points").val();
+      window.setInterval('if(old_var!=$("#current_hit_points").val()){$("#current_hit_points_form").submit();old_var = $("#current_hit_points").val();}', 500);
+      </script>
     </p>
-
+  <hr/>
     <div class="menu short padding_bottom_20">	
   		<ul>
         <li><%=link_to 'description', "#", :onclick=>"toggle_stats('description');return false;" %></li>
