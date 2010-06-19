@@ -12,7 +12,7 @@
         <%= form_for([@campaign, @character], :html=>{:id=>:current_hit_points_form}, :remote=>true) do |f| %>        
         <div class="field">
           <b><%= f.label :current_hit_points %></b>
-          <%= f.text_area :current_hit_points, :id=>:current_hit_points, :style=>"width: 600px, height: 300px;" %>
+          <%= f.text_area :current_hit_points, :id=>:current_hit_points, :style=>"width: 600px, height: 200px;" %>
         </div>
         
       <%end%>
