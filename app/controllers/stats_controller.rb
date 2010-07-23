@@ -79,7 +79,7 @@ class StatsController < ApplicationController
 
     respond_to do |format|
       if @stat.update_attributes(params[:stat])
-        format.html { redirect_to([@campaign, @character, @stat], :notice => 'Stat was successfully updated.') }
+        format.html { redirect_to(campaign_character_stats_url(@campaign, @character)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
